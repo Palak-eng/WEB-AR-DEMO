@@ -9,6 +9,10 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
     <script type="module"
         src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
     </script>
@@ -17,25 +21,50 @@
 
 <body>
 
-    <h1>🚀 My First WebAR App</h1>
+    <header>
+        <p class="eyebrow">WEBXR PROTOTYPE &middot; AR OBJECT VIEWER</p>
+        <h1>My First WebAR App</h1>
+        <p class="subtitle">
+            Drag to rotate the astronaut. On a supported Android phone,
+            tap <span class="hl">AR</span> to place it in your room.
+        </p>
+    </header>
 
-    <p>
-        Rotate the astronaut with your mouse.
-        <br>
-        On a supported Android phone, tap the AR button to place it in your room.
-    </p>
+    <main>
+        <div class="hud-frame">
 
-    <model-viewer
-        src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
-        alt="Astronaut"
-        ar
-        ar-modes="scene-viewer webxr quick-look"
-        camera-controls
-        auto-rotate
-        shadow-intensity="1"
-        exposure="1"
-        style="width:100%; height:600px;">
-    </model-viewer>
+            <span class="hud-label corner-tl">OBJ: ASTRONAUT&#8209;7</span>
+            <span class="hud-label corner-tr"><span class="status-dot"></span>SIGNAL LOCKED</span>
+            <span class="hud-label corner-bl" id="rotation-readout">ROT: 0&deg; / 0&deg;</span>
+            <span class="hud-label corner-br">AR: TAP TO PLACE</span>
+
+            <div class="viewer-wrapper">
+
+                <model-viewer
+                    id="ar-model"
+                    src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+                    alt="Astronaut"
+                    ar
+                    ar-modes="scene-viewer webxr quick-look"
+                    camera-controls
+                    auto-rotate
+                    shadow-intensity="1"
+                    exposure="1">
+
+                    <div class="progress-bar-container" slot="progress-bar">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+
+                </model-viewer>
+
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Built with model&#8209;viewer &middot; WebXR Device API</p>
+    </footer>
 
     <script src="script.js"></script>
 

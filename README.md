@@ -2,8 +2,7 @@
 
 A browser-based WebXR/AR viewer built with **Google's `model-viewer`** web component. Load a 3D astronaut model, inspect it in an interactive 3D viewer, and place it in your real-world space using AR — no app install required.
 
-Live demo: *(add your GitHub Pages link here once deployed)*
-
+Live demo: https://palak-eng.github.io/WEB-AR-DEMO/
 ---
 
 ## Features
